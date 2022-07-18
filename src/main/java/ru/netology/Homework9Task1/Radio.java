@@ -5,7 +5,7 @@ public class Radio {
     // Громкость
     public int currentVolume;
     public int minVolume = 0;
-    public int maxVolume = 10;
+    public int maxVolume = 100;
 
     public int getCurrentVolume() {
         return currentVolume;
@@ -15,6 +15,21 @@ public class Radio {
     public int currentRadioStationNumber;
     public int minStation = 0;
     public int maxStation = 9;
+    public int countNumberStation = 10;
+
+    // Конструктор с параметрами
+    public Radio(int countNumberStation) {
+        this.countNumberStation = countNumberStation;
+    }
+
+    // Конструктор без параметров
+    public Radio() {
+        this.countNumberStation = getCountNumberStation();
+    }
+
+    public int getCountNumberStation() {
+        return countNumberStation;
+    }
 
     public int getCurrentRadioStationNumber() {
         return currentRadioStationNumber;

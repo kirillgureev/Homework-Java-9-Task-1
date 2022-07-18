@@ -8,11 +8,11 @@ public class RadioTest {
     @Test
     public void shouldIncreaseVolumeIfMaxVolume() {
         Radio radio = new Radio();
-        radio.currentVolume = 10;
+        radio.currentVolume = 100;
 
         radio.increaseVolume();
 
-        int expected = 10;
+        int expected = 100;
         int actual = radio.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
@@ -109,7 +109,7 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    // Выставление станции
+    //Выставление станции
     @Test
     public void shouldStationIfLessMinStation() {
         Radio radio = new Radio();
@@ -133,13 +133,27 @@ public class RadioTest {
     }
 
     @Test
-    public void shouldStationIfBetweenMinAndMaxStations() {
+    public void shouldStationIfBetween() {
         Radio radio = new Radio();
-        radio.setCurrentRadioStationNumber(5);
+        radio.setCurrentRadioStationNumber(3);
 
-        int expected = 5;
+        int expected = 3;
         int actual = radio.getCurrentRadioStationNumber();
-
         Assertions.assertEquals(expected, actual);
+    }
+
+    // Тесты для конструкторов
+    @Test
+    public void testForConstructorWithParameters() {
+        Radio radio = new Radio(14);
+
+        Assertions.assertEquals(14, radio.getCountNumberStation());
+    }
+
+    @Test
+    public void testForConstructorWithoutParameters() {
+        Radio radio = new Radio();
+
+        Assertions.assertEquals(10, radio.getCountNumberStation());
     }
 }
