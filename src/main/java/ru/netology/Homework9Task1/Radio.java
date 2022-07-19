@@ -13,9 +13,10 @@ public class Radio {
 
     // Станция
     public int currentRadioStationNumber;
-    public int minStation = 0;
-    public int maxStation = 9;
     public int countNumberStation = 10;
+    public int minStation = 0;
+    public int maxStation = countNumberStation - 1;
+
 
     // Конструктор с параметрами
     public Radio(int countNumberStation) {
