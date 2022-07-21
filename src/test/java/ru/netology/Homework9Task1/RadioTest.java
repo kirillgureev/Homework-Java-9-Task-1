@@ -145,9 +145,9 @@ public class RadioTest {
     // Тесты для конструкторов
     @Test
     public void testForConstructorWithParameters() {
-        Radio radio = new Radio(14);
+        Radio radio = new Radio(15);
 
-        Assertions.assertEquals(14, radio.getCountNumberStation());
+        Assertions.assertEquals(15, radio.getCountNumberStation());
     }
 
     @Test

@@ -1,24 +1,20 @@
 package ru.netology.Homework9Task1;
 
 public class Radio {
-
+    // 1. Поля
     // Громкость
-    public int currentVolume;
-    public int minVolume = 0;
-    public int maxVolume = 100;
-
-    public int getCurrentVolume() {
-        return currentVolume;
-    }
+    protected int currentVolume;
+    protected int minVolume = 0;
+    protected int maxVolume = 100;
 
     // Станция
-    public int currentRadioStationNumber;
-    public int countNumberStation = 10;
-    public int minStation = 0;
-    public int maxStation = countNumberStation - 1;
+    protected int currentRadioStationNumber;
+    protected int countNumberStation = 10;
+    protected int minStation = 0;
+    protected int maxStation = countNumberStation - 1;
 
-
-    // Конструктор с параметрами
+    // 2. Конструкторы
+    // Конструктор с параметром кол-во станций у радио
     public Radio(int countNumberStation) {
         this.countNumberStation = countNumberStation;
     }
@@ -28,12 +24,17 @@ public class Radio {
         this.countNumberStation = getCountNumberStation();
     }
 
+    // 3. Get/Set
     public int getCountNumberStation() {
         return countNumberStation;
     }
 
     public int getCurrentRadioStationNumber() {
         return currentRadioStationNumber;
+    }
+
+    public int getCurrentVolume() {
+        return currentVolume;
     }
 
     public void setCurrentRadioStationNumber(int newCurrentRadioStationNumber) {
@@ -46,6 +47,7 @@ public class Radio {
         currentRadioStationNumber = newCurrentRadioStationNumber;
     }
 
+    // 4. Методы
     // Увеличение громкости на 1
     public void increaseVolume() {
         if (currentVolume < maxVolume) {
