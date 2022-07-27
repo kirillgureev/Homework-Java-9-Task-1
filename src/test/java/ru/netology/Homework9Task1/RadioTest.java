@@ -144,16 +144,28 @@ public class RadioTest {
 
     // Тесты для конструкторов
     @Test
-    public void testForConstructorWithParameters() {
+    public void shouldNextStationForConstructorWithParameters() {
         Radio radio = new Radio(15);
+        radio.setCurrentRadioStationNumber(12);
 
-        Assertions.assertEquals(15, radio.getCountNumberStation());
+        radio.nextStation();
+
+        int expected = 13;
+        int actual = radio.getCurrentRadioStationNumber();
+
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
-    public void testForConstructorWithoutParameters() {
-        Radio radio = new Radio();
+    public void shouldPrevStationForConstructorWithoutParameters() {
+        Radio radio = new Radio(17);
+        radio.setCurrentRadioStationNumber(12);
 
-        Assertions.assertEquals(10, radio.getCountNumberStation());
+        radio.prevStation();
+
+        int expected = 11;
+        int actual = radio.getCurrentRadioStationNumber();
+
+        Assertions.assertEquals(expected, actual);
     }
 }

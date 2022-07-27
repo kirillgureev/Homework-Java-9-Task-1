@@ -9,9 +9,9 @@ public class Radio {
 
     // Станция
     protected int currentRadioStationNumber;
-    protected int countNumberStation = 10;
+    protected int countNumberStation;
     protected int minStation = 0;
-    protected int maxStation = countNumberStation - 1;
+    // protected int maxStation = countNumberStation - 1;
 
     // 2. Конструкторы
     // Конструктор с параметром кол-во станций у радио
@@ -21,7 +21,7 @@ public class Radio {
 
     // Конструктор без параметров
     public Radio() {
-        this.countNumberStation = getCountNumberStation();
+        this.countNumberStation = 10;
     }
 
     // 3. Get/Set
@@ -37,14 +37,14 @@ public class Radio {
         return currentVolume;
     }
 
-    public void setCurrentRadioStationNumber(int newCurrentRadioStationNumber) {
-        if (newCurrentRadioStationNumber < minStation) {
+    public void setCurrentRadioStationNumber(int currentRadioStationNumber) {
+        if (currentRadioStationNumber < minStation) {
             return;
         }
-        if (newCurrentRadioStationNumber > maxStation) {
+        if (currentRadioStationNumber > countNumberStation - 1) {
             return;
         }
-        currentRadioStationNumber = newCurrentRadioStationNumber;
+        this.currentRadioStationNumber = currentRadioStationNumber;
     }
 
     // 4. Методы
@@ -64,19 +64,19 @@ public class Radio {
 
     // Переключение на след. станцию
     public void nextStation() {
-        if (currentRadioStationNumber == maxStation) {
-            currentRadioStationNumber = 0;
+        if (currentRadioStationNumber < countNumberStation - 1) {
+            currentRadioStationNumber++;
         } else {
-            currentRadioStationNumber = currentRadioStationNumber + 1;
+            currentRadioStationNumber = 0;
         }
     }
 
     // Переключение на пред. станцию
     public void prevStation() {
-        if (currentRadioStationNumber == minStation) {
-            currentRadioStationNumber = 9;
+        if (currentRadioStationNumber > minStation) {
+            currentRadioStationNumber--;
         } else {
-            currentRadioStationNumber = currentRadioStationNumber - 1;
+            currentRadioStationNumber = countNumberStation - 1;
         }
     }
 }
